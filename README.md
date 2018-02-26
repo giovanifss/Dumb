@@ -66,13 +66,15 @@ Dumb receives the dumain mask as first parameter and the wordlists following. Th
 
 ## Docker:
 If you don't want to build from source, you can use the docker version: `docker run -it giovanifss/dumb "DUMB.dumain.com" subdomains.txt`  
+**All the wordlists in wordlists/ are inside the docker container in filesystem root (/)**, this means that you can call dumb passing the wordlists name: `docker run -it giovanifss/dumb "DUMB.dumain.com" (subdomains.txt|subdominios.txt|domain-endings.txt)`
 
 To work with local wordlists that aren't present inside the container, you can use docker volumes:  
 `docker run -v local/wordlist.txt:/opt/wordlist.txt -it giovanifss/dumb "DUMB.dumain.com" /opt/wordlist.txt`  
 
 ## Building from source:
 If you want to build from source you will need [stack](https://docs.haskellstack.org/en/stable/README/):  
-Enter in the project directory and run `$ stack build`.  
+- Enter in the project directory and run `$ stack build`.  
+- To execute: `$ stack exec dumb "DUMB.dumain.com" wordlists/subdomains.txt`  
 Note that some older versions of stack have some problems to build the project (Debian stack package, for example). Make sure you get the latest stack version.
 
 ## Future features:
