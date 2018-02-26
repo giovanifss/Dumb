@@ -7,7 +7,7 @@ A tool to bruteforce dumains!
 ## How DUMB works:
 Dumb works with a masked dumain for substitution. The dumain can have as many masks as you want as long as you pass the according wordlists. For example:  
 
-#### Bruteforcing subdumains:
+### Bruteforcing subdumains:
 Using the mask `DUMB.dumain.com` and the following wordlists:  
 ```
 www
@@ -22,7 +22,7 @@ backoffice.dumain.com
 ```
 For subdumains, you can only pass `dumain.com` and dumb will understand as `DUMB.dumain.com`.
 
-#### Bruteforcing domain endings:
+### Bruteforcing domain endings:
 Using the same principle, you can pass as mask `dumain.DUMB` with the following wordlist:
 ```
 com
@@ -36,7 +36,7 @@ dumain.net
 dumain.org
 ```
 
-#### Bruteforcing everything:
+### Bruteforcing everything:
 To bruteforce **everything** you can pass the mask as "DUMB.DUMB.DUMB" passing three wordlists:
 ```
 wordlist1   wordlist2   wordlist3
@@ -65,8 +65,11 @@ Dumb receives the dumain mask as first parameter and the wordlists following. Th
 `$ dumb "DUMB-DUMB-DUMB_DUMB.DUMB.DUMB" wordlists/foo_1.txt ... wordlists/foo_6.txt`
 
 ## Docker:
-If you don't want to build from source, you can use the docker version: `docker run -it giovanifss/dumb "DUMB.dumain.com" subdomains.txt`  
-**All the wordlists in wordlists/ are inside the docker container in filesystem root (/)**, this means that you can call dumb passing the wordlists name: `docker run -it giovanifss/dumb "DUMB.dumain.com" (subdomains.txt|subdominios.txt|domain-endings.txt)`
+If you don't want to build from source, you can use the docker version:  
+- `docker run -it giovanifss/dumb "DUMB.dumain.com" subdomains.txt`  
+
+**All the wordlists in `wordlists/` are inside the docker container in filesystem root `/`**, this means that you can call dumb passing the wordlists name:  
+- `docker run -it giovanifss/dumb "DUMB.dumain.com" (subdomains.txt|subdominios.txt|domain-endings.txt)`
 
 To work with local wordlists that aren't present inside the container, you can use docker volumes:  
 `docker run -v local/wordlist.txt:/opt/wordlist.txt -it giovanifss/dumb "DUMB.dumain.com" /opt/wordlist.txt`  
@@ -75,6 +78,7 @@ To work with local wordlists that aren't present inside the container, you can u
 If you want to build from source you will need [stack](https://docs.haskellstack.org/en/stable/README/):  
 - Enter in the project directory and run `$ stack build`.  
 - To execute: `$ stack exec dumb "DUMB.dumain.com" wordlists/subdomains.txt`  
+
 Note that some older versions of stack have some problems to build the project (Debian stack package, for example). Make sure you get the latest stack version.
 
 ## Future features:
