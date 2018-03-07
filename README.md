@@ -67,6 +67,9 @@ Dumb receives the dumain mask as first parameter and the wordlists following. Th
 ## Docker:
 If you don't want to build from source, you can use the docker version:  
 - `docker run -it giovanifss/dumb "DUMB.dumain.com" subdomains.txt`  
+Also, if you want to test the newest code (beta) with improvements, use:  
+- `docker run -it giovanifss/dumb:beta "DUMB.dumain.com" subdomains.txt`  
+**Note that the beta may be unstable or do not perform well**
 
 **All the wordlists in `wordlists/` are inside the docker container in filesystem root `/`**, this means that you can call dumb passing the wordlists name:  
 - `docker run -it giovanifss/dumb "DUMB.dumain.com" (subdomains.txt|subdominios.txt|domain-endings.txt)`
